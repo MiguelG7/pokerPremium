@@ -73,8 +73,6 @@ carta(reina, tréboles, qc).
 carta(rey, tréboles, kc).
 carta(as, tréboles, ac).
 
-% Definición de las cartas y palos (código previo)
-
 pokerPremium:-
     write('BIENVENIDO A POKERPREMIUM, DETECTOR DE PAREJAS, TRIOS, ESCALERAS Y COLOR\nIntroduce DOS cartas propias (2345678910jqka + hdsc) (Ejemplo: ["10h","9h"]: '),
     read(CartasPropias),
@@ -96,7 +94,6 @@ altaMesa([Carta | Resto]) :-
     assert(totalCartas(Carta)),
     altaMesa(Resto).
 
-% Regla para verificar si hay dos cartas con el mismo número pero diferente palo en totalCartas
 parejaCartas :-
     totalCartas(Carta1),
     totalCartas(Carta2),
