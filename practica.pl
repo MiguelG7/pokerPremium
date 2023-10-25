@@ -113,6 +113,7 @@ trioCartas :-
     carta(N, Palo1, Carta1),
     carta(N, Palo2, Carta2),
     carta(N, Palo3, Carta3),
+    Carta1 \= Carta2, Carta2 \= Carta3, Carta3 \= Carta1,
     Palo1 \= Palo2, Palo2\= Palo3,
     format('Las tríos existentes son: ~w , ~w y  ~w\n', [Carta1, Carta2, Carta3]).
 
@@ -148,14 +149,14 @@ imprimirPalos([Palo | Resto]) :-
     write(Palo),
     write(' '),
     imprimirPalos(Resto).
-    
+
 combos:-
     write('Detectando su mayor combo...'),
 
     (colorCartas, !);
     (escaleraCartas,!);
     (trioCartas,!);
-    parejaCartas.
+    parejaCartas,!.
 
 borrarCartas:-
     retractall(manoCartas(_)),
