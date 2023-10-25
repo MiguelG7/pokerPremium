@@ -1,3 +1,13 @@
+/* Copyright 2023 Miguel Gamboa
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations underÂ theÂ License.Â */
+
 :- dynamic manoCartas/1.
 :- dynamic mesaCartas/1.
 :- dynamic totalCartas/1.
@@ -5,7 +15,7 @@
 palo(corazones, h).
 palo(diamantes, d).
 palo(picas, s).
-palo(tréboles, c).
+palo(trÃ©boles, c).
 
 % Cartas numeradas
 carta(2, corazones, '2h').
@@ -35,15 +45,15 @@ carta(7, picas, '7s').
 carta(8, picas, '8s').
 carta(9, picas, '9s').
 carta(10, picas, '10s').
-carta(2, tréboles, '2c').
-carta(3, tréboles, '3c').
-carta(4, tréboles, '4c').
-carta(5, tréboles, '5c').
-carta(6, tréboles, '6c').
-carta(7, tréboles, '7c').
-carta(8, tréboles, '8c').
-carta(9, tréboles, '9c').
-carta(10, tréboles, '10c').
+carta(2, trÃ©boles, '2c').
+carta(3, trÃ©boles, '3c').
+carta(4, trÃ©boles, '4c').
+carta(5, trÃ©boles, '5c').
+carta(6, trÃ©boles, '6c').
+carta(7, trÃ©boles, '7c').
+carta(8, trÃ©boles, '8c').
+carta(9, trÃ©boles, '9c').
+carta(10, trÃ©boles, '10c').
 
 % Cartas de figuras
 carta(jota, corazones, jh).
@@ -58,15 +68,15 @@ carta(jota, picas, js).
 carta(reina, picas, qs).
 carta(rey, picas, ks).
 carta(as, picas, as).
-carta(jota, tréboles, jc).
-carta(reina, tréboles, qc).
-carta(rey, tréboles, kc).
-carta(as, tréboles, ac).
+carta(jota, trÃ©boles, jc).
+carta(reina, trÃ©boles, qc).
+carta(rey, trÃ©boles, kc).
+carta(as, trÃ©boles, ac).
 
-% Definición de las cartas y palos (código previo)
+% DefiniciÃ³n de las cartas y palos (cÃ³digo previo)
 
 pokerPremium:-
-    write('Introduce DOS cartas propias (2345678910jqka + hdsc) (Ejemplo: ["10h","9h"]: '),
+    write('BIENVENIDO A POKERPREMIUM, DETECTOR DE PAREJAS, TRIOS, ESCALERAS Y COLOR\nIntroduce DOS cartas propias (2345678910jqka + hdsc) (Ejemplo: ["10h","9h"]: '),
     read(CartasPropias),
     altaPropias(CartasPropias),
 
@@ -86,8 +96,8 @@ altaMesa([Carta | Resto]) :-
     assert(totalCartas(Carta)),
     altaMesa(Resto).
 
-% Regla para verificar si hay dos cartas con el mismo número pero diferente palo en totalCartas
-% Regla para verificar si hay dos cartas con el mismo número pero diferente palo en totalCartas
+% Regla para verificar si hay dos cartas con el mismo nÃºmero pero diferente palo en totalCartas
+% Regla para verificar si hay dos cartas con el mismo nÃºmero pero diferente palo en totalCartas
 parejaCartas :-
     totalCartas(Carta1),
     totalCartas(Carta2),
@@ -95,8 +105,61 @@ parejaCartas :-
     carta(N, Palo2, Carta2),
     Carta1 \= Carta2,
     Palo1 \= Palo2,
-    format('Las cartas con el mismo número pero diferente palo son: ~w y ~w\n', [Carta1, Carta2]).
+    format('Las parejas existentes son: ~w y ~w\n', [Carta1, Carta2]).
 
+trioCartas :-
+    totalCartas(Carta1),
+    totalCartas(Carta2),
+    totalCartas(Carta3),
+    carta(N, Palo1, Carta1),
+    carta(N, Palo2, Carta2),
+    carta(N, Palo3, Carta3),
+    Palo1 \= Palo2, Palo2\= Palo3,
+    format('Las trÃ­os existentes son: ~w , ~w y  ~w\n', [Carta1, Carta2, Carta3]).
+
+escaleraCartas :-
+    findall(N, (carta(N, _, Carta), totalCartas(Carta)), Numeros),
+    sort(Numeros, NumerosOrdenados),
+    length(NumerosOrdenados, Longitud),
+    Longitud >= 5,
+    esEscalera(NumerosOrdenados),
+    write('Escalera encontrada: '),
+    imprimirEscalera(NumerosOrdenados).
+
+esEscalera([A, B, C, D, E | _]) :- E is A + 4.
+esEscalera([_ | Resto]) :- esEscalera(Resto).
+
+imprimirEscalera([]) :- nl.
+imprimirEscalera([N | Resto]) :-
+    write(N),
+    write(' '),
+    imprimirEscalera(Resto).
+
+colorCartas :-
+    findall(Palo, (carta(_, Palo, Carta), totalCartas(Carta)), Palos),
+    todosMismos(Palos),
+    write('Color encontrado: '),
+    imprimirPalos(Palos).
+
+todosMismos([_]).
+todosMismos([Palo1, Palo2 | Resto]) :- Palo1 = Palo2, todosMismos([Palo2 | Resto]).
+
+imprimirPalos([]) :- nl.
+imprimirPalos([Palo | Resto]) :-
+    write(Palo),
+    write(' '),
+    imprimirPalos(Resto).
+
+
+
+combos:-
+
+    write('Detectando su mayor combo...'),
+
+    (colorCartas, !);
+    (escaleraCartas,!);
+    (trioCartas,!);
+    parejaCartas.
 
 borrarCartas:-
     retractall(manoCartas(_)),
