@@ -11,8 +11,6 @@ Poker Premium es una aplicación de la modalidad de poker "Texas hold 'em" que d
 
 ## Instalación
 
-Proporciona pasos claros y concisos para que otros desarrolladores puedan instalar y ejecutar tu proyecto. Si es necesario, incluye ejemplos de comandos o scripts.
-
 ```bash
 git clone https://github.com/MiguelG7/pokerPremium.git
 ```
