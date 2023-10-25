@@ -1,4 +1,4 @@
-# Poker Premium
+# Poker Premium por Miguel Gamboa Sánchez
 
 Poker Premium es una aplicación de la modalidad de poker "Texas hold 'em" que detectará las parejas, tríos, escaleras y colores principales que surjan en la mesa. Funcionará mediente dos inputs: tu mano y las 5 cartas de la mesa.
 
@@ -71,3 +71,6 @@ false.
 Este proyecto está bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) para más detalles.
 
 ## Contacto
+Miguel Gamboa Sánchez
+[Correo](miguel.gamboasanchez@usp.ceu.es)
+[GitHub](https://github.com/MiguelG7)
