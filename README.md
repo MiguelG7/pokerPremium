@@ -20,6 +20,7 @@ git clone https://github.com/MiguelG7/pokerPremium.git
 ## Uso
 
 ```
+<!-- Iniciamos el programa -->
 ?- pokerPremium.
 BIENVENIDO A POKERPREMIUM, DETECTOR DE PAREJAS, TRIOS, ESCALERAS Y COLOR
 Introduce DOS cartas propias (2345678910jqka + hdsc) (Ejemplo: ["10h","9h"]): ['10h','9h'].
@@ -27,15 +28,7 @@ Introduce entre 3 y 5 cartas en la mesa (2345678910jqka + hdsc) (Ejemplo: ["10c"
 
 true.
 
-?- totalCartas(X).
-X = '10h' ;
-X = '9h' ;
-X = '10c' ;
-X = '4c' ;
-X = '5c' ;
-X = '6c' ;
-X = '10d'.
-
+<!-- Verificamos que las cartas se han introducido de manera correcta -->
 ?- totalCartas(X).
 X = '10h' ;
 X = '9h' ;
@@ -56,10 +49,12 @@ X = '5c' ;
 X = '6c' ;
 X = '10d'.
 
+<!-- Comprobamos los combos de la mesa -->
 ?- combos.
 Detectando su mayor combo...Las tríos existentes son: 10h , 10c y  10h
 true.
 
+<!-- Borramos cartas para la siguiente ronda -->
 ?- borrarCartas.
 true.
 
@@ -72,5 +67,5 @@ Este proyecto está bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) par
 
 ## Contacto
 Miguel Gamboa Sánchez
-[Correo](miguel.gamboasanchez@usp.ceu.es)
+[Correo](mailto:miguel.gamboasanchez@usp.ceu.es)
 [GitHub](https://github.com/MiguelG7)
