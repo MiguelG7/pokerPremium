@@ -1,6 +1,6 @@
 # Poker Premium por Miguel Gamboa Sánchez
 
-Poker Premium es una aplicación de la modalidad de poker "Texas hold 'em" que detectará las parejas, tríos, escaleras y colores principales que surjan en la mesa. Funcionará mediente dos inputs: tu mano y las 5 cartas de la mesa.
+Poker Premium es una aplicación de la modalidad de poker "Texas hold 'em" que detectará las parejas, tríos, escaleras y colores principales que surjan en la mesa. Funcionará mediente dos inputs: tu mano y las 5 cartas de la mesa. La apliación solo detectará el combo de mayor puntuación dentro de los 4 disponibles.
 
 ## Tabla de Contenidos
 
