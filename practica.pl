@@ -97,7 +97,6 @@ altaMesa([Carta | Resto]) :-
     altaMesa(Resto).
 
 % Regla para verificar si hay dos cartas con el mismo número pero diferente palo en totalCartas
-% Regla para verificar si hay dos cartas con el mismo número pero diferente palo en totalCartas
 parejaCartas :-
     totalCartas(Carta1),
     totalCartas(Carta2),
@@ -149,11 +148,8 @@ imprimirPalos([Palo | Resto]) :-
     write(Palo),
     write(' '),
     imprimirPalos(Resto).
-
-
-
+    
 combos:-
-
     write('Detectando su mayor combo...'),
 
     (colorCartas, !);
