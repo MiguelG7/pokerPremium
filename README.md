@@ -67,5 +67,5 @@ Este proyecto está bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) par
 
 ## Contacto
 Miguel Gamboa Sánchez
-[Correo](mailto:miguel.gamboasanchez@usp.ceu.es)
+[miguel.gamboasanchez@usp.ceu.es](mailto:miguel.gamboasanchez@usp.ceu.es)
 [GitHub](https://github.com/MiguelG7)
