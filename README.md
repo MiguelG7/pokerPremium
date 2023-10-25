@@ -1,13 +1,13 @@
 # Poker Premium
 
-Descripción corta del proyecto.
+Poker Premium es una aplicación de la modalidad de poker "Texas hold 'em" que detectará las parejas, tríos, escaleras y colores principales que surjan en la mesa. Funcionará mediente dos inputs: tu mano y las 5 cartas de la mesa.
 
 ## Tabla de Contenidos
 
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Contribución](#contribución)
 - [Licencia](#licencia)
+- [Contacto](#contacto)
 
 ## Instalación
 
@@ -23,3 +23,5 @@ npm install
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
